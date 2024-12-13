@@ -1,0 +1,620 @@
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<style>
+*{
+  padding: 0;
+}
+  .container{
+    padding: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    justify-content:center;
+    justify-items:center;
+    background-color: #000;
+    color: #aaa;
+    display: flex;
+    
+  }
+  .header{
+    font-size: 2rem;
+    position: fixed;
+    text-align: center;
+    left: 40%;
+    font-weight: bold;
+    background: linear-gradient(90deg, #4a9, #c17e7ad5); /* Blue to Pink gradient */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    top: 5%;
+  }
+  .user{
+    height: 40px;
+    width: 40px;
+    background-color: #aaa;
+    border-radius: 50%;
+    position: fixed;
+    top:5%;
+    right: 5%;
+  }
+  .user-image{
+        height: 40px;
+    width: 40px;
+    border-radius: 50%;
+  }
+  .svg{
+    z-index: 1;
+    position: fixed;
+    width: 1.6rem;
+    top: 5.5%;
+    left: 4.5%;
+  }
+  .toggle {
+    font-size: 2rem; /* Adjust font size as needed */
+    font-weight: bold;
+    background: linear-gradient(90deg, #4a90e2, #c17e7ad5); /* Blue to Pink gradient */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    position: fixed;
+    top: 44%;
+}
+
+.toggle span {
+    background: linear-gradient(90deg, #7c66a1d5, #d6817cd5); /* Pink to Orange gradient */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+/* Container for Input and Icons */
+.bottom-container {
+    display: flex;
+    align-items: center;
+    background-color: #2a2a2a; /* Slightly lighter background for contrast */
+    height:95px;
+    width:100%;
+    left: 0;
+    border-top:1px solid rgba(203,225,211,0.729);
+    border-radius: ; /* Fully rounded edges */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    position:absolute;
+    bottom: 0;
+}
+
+.messageInput{
+  display: flex;
+    align-items: center;
+    background-color: #2a2a2a; /* Slightly lighter background for contrast */
+    position: relative;
+    top: 0;
+    left: -15;
+    height: 50%;
+    width: 100%;
+    padding: 10px 15px;
+    border-radius: 50px; /* Fully rounded edges */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+  border: 1px solid #2a2a2a;
+  outline: none;
+  color: white;
+  
+}
+
+.messageInput:hover{
+  height:100%;
+  border-radius:2px;
+}
+/* Input Text Box Styling */
+.input-box {
+    color: #ffffff;
+    font-size: 1rem;
+    flex: 1;
+    padding: 0 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    
+    text-overflow: ellipsis;
+}
+
+/* Icons Container */
+.icons {
+    display: flex;
+    border: 1px solid #627e66ba;
+    border-radius: 25px;
+    height: 50%;
+    width: 40%;
+    left:-120px;
+    background-color: #4f5950ba;
+    position: relative;
+    gap: 10px; /* Space between icons */
+}
+
+/* Individual Icon Styling */
+.icon {
+    width: 24px;
+    height: 24px;
+    background-color:#2a2a2a ; /* Placeholder for icon color */
+    border-radius: 50%; /* Circular icons */
+    display: flex;
+    
+    justify-content: center;
+    align-items: center;
+}
+
+/* Specific Icons (Replace background with images or SVG later) */
+.mic {
+    background: url('mic-icon.png') no-repeat center;
+    background-size: cover;
+    padding: 12px 22px;
+}
+
+.camera {
+    background: url('camera-icon.png') no-repeat center;
+    background-size: cover;
+    padding: 12px 12px;
+}
+
+.icon-stars {
+    background: url('stars-icon.png') no-repeat center;
+    background-size: cover;
+    position: relative;
+    right: 10%;
+    height: 50%;
+    width: 83px;
+    border: 1px solid white;
+    border-radius:50%;
+}
+.mic-icon{
+  padding: 5px 5px 5px 5px;
+  width: 38px;
+}
+.chatArea{
+  width: 100%;
+  position:fixed;
+  left: 0;
+  overflow-y: scroll;
+}
+.chat_container{
+  position:fixed;
+  left: 0;
+  height: 70%;
+  top: 10%;
+  overflow: scroll;
+  width:100%;
+  margin:12;
+  color: white;
+}
+        .message.sent {
+            align-self: flex-end;
+            background-color: #251f1fdc;
+            border-radius:5px;
+            padding: 18px 18px 18px 18px;
+            height: auto;
+           border-top-right-radius:2rem;
+           border-bottom-left-radius:2rem ;
+           border-top-left-radius:2rem;
+            border:1px solid #aaa;
+            position:relative;
+            width:45%;
+            right: -27%;
+            color: white;
+            margin:2px 2px 9px 78px;
+        }
+         .message img, .message video {
+            max-width: 100%;
+            border-radius: 5px;
+        }
+
+        .message.received {
+            align-self: flex-start;
+            border:1px solid #baa099f3;
+            color:;
+            border-top-right-radius:2rem;
+           border-bottom-right-radius:2rem ;
+           border-top-left-radius:2rem;
+            color: white;
+            width: 60%;
+            
+            margin:40px 0px;
+            padding: 18px 18px 18px 18px;
+        }
+               
+         .chat-area {
+            flex: 1;
+            padding: ;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+        }
+        .message.received.timestamp{
+          position: relative;
+          left: 60%;
+        }
+        .pulse {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background-color: rgba(255, 71, 87, 0.5); /* Translucent red */
+  border-radius: 50%;
+  animation: pulse 1.5s infinite;
+  position:relative;
+  left: 35.5%;
+  top: 20%;
+  z-index: 1;
+}
+
+/* Keyframes for pulse animation */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    background-color: green;
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.5);
+     background-color:blue;
+    opacity: 0.4;
+  }
+  70% {
+    transform: scale(2);
+     background-color:red;
+    opacity: 0.6;
+  }
+  100%{
+    transform: scale(2.5);
+     background-color:green;
+    opacity:0;
+  }
+}
+        .file-input {
+            display: none;
+        }
+           .gallery-item {
+            position: relative;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            transition: transform 0.3s;
+        }
+
+        .gallery img, .gallery video {
+            width: 30px;
+            overflow: scroll;
+            height:30px;
+            border-radius: 8px;
+        }
+
+        .title-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 90%;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            text-align: center;
+            padding: 5px;
+            font-size: 14px;
+            border-radius: 0 0 8px 8px;
+        }
+
+        .material-icons {
+            font-size: 24px;
+        }
+
+        .zoom-icon,
+        .select-icon,
+        .more-icon {
+            position: absolute;
+            width: 24px;
+            height: 24px;
+            background-color: rgba(255, 255, 255, 0.8);
+            color: #333;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            cursor: pointer;
+            z-index: 5;
+        }
+
+        .zoom-icon {
+            top: 10px;
+            left: 10px;
+        }
+
+        .select-icon {
+            top: 10px;
+            right: 10px;
+        }
+
+        .more-icon {
+            bottom: 10px;
+            right: 10px;
+        }
+
+        .selected {
+            border: 2px solid #4CAF50;
+            transform: scale(1.05);
+        }
+ .send-button-icon{
+   position:relative;
+   height:50%;
+  right:2%;
+  display:none;
+ }
+        .options-box {
+            position: absolute;
+            bottom: 40px;
+            right: 10px;
+            background-color: #333;
+            border: 1px solid #888;
+            border-radius: 8px;
+            padding: 10px;
+            display: none;
+            z-index: 10;
+            width: 90%;
+        }
+
+        .options-box button {
+            background-color: #444;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            margin: 5px 0;
+            width: 100%;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        .options-box button:hover {
+            background-color: #555;
+        }
+
+        .rename-input {
+            width: 100%;
+            padding: 5px;
+            border: 1px solid #888;
+            margin: 5px 0;
+            border-radius: 4px;
+        }
+        .chat-histery{
+          position:fixed;
+          height:100%;
+          width:100%;
+          background-color:#aaa;
+          top:0;
+          left:0;
+        }
+        .close-history{
+          height:5%;
+          
+          position:relative;
+          top:2%;
+          left:2%;
+        }
+</style>
+   
+          
+
+        </div>
+<div class="container">
+  <div class="message-icon"><svg class="svg"fill="white" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 600.619 600.619" xml:space="preserve" stroke="black" stroke-width="1"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <path d="M541.979,5.706H58.64c-32.059,0-58.14,26.082-58.14,58.14V424.84c0,31.556,25.271,57.32,56.636,58.121l0.139,53.936 c0.021,8.118,1.679,15.971,4.928,23.34c3.092,7.013,7.483,13.259,13.048,18.562c10.903,10.391,25.18,16.114,40.198,16.114 c10.843,0,21.471-3.056,30.737-8.835L311.471,482.98h230.508c32.059,0,58.141-26.081,58.141-58.14V63.846 C600.117,31.788,574.037,5.706,541.979,5.706z M557.277,424.84c0,8.449-6.85,15.3-15.299,15.3H303.586 c-2.863,0-5.668,0.803-8.097,2.318L123.512,549.729c-2.582,1.61-5.357,2.343-8.063,2.343c-7.958,0-15.311-6.335-15.334-15.285 l-0.208-81.386c-0.021-8.435-6.866-15.261-15.3-15.261H58.64c-8.45,0-15.3-6.851-15.3-15.301V63.846c0-8.45,6.851-15.3,15.3-15.3 h483.338c8.449,0,15.301,6.85,15.301,15.3V424.84H557.277L557.277,424.84z"></path> <path d="M115.449,595.413c-15.147,0-29.545-5.771-40.542-16.252c-5.614-5.351-10.042-11.649-13.161-18.723 c-3.277-7.434-4.95-15.354-4.97-23.541l-0.137-53.451c-15.138-0.51-29.304-6.771-39.939-17.663C5.93,454.755,0,440.214,0,424.84 V63.846c0-32.334,26.306-58.64,58.64-58.64h483.338c32.333,0,58.639,26.306,58.641,58.64v360.995 c0,32.334-26.306,58.64-58.641,58.64H311.614L146.45,586.502C137.104,592.332,126.384,595.413,115.449,595.413z M58.64,6.206 C26.857,6.206,1,32.063,1,63.846V424.84c0,15.111,5.829,29.404,16.414,40.244c10.566,10.821,24.677,16.993,39.735,17.377 l0.486,0.013l0.14,54.422c0.021,8.048,1.664,15.833,4.885,23.139c3.066,6.953,7.418,13.145,12.936,18.402 c10.811,10.303,24.964,15.977,39.853,15.977c10.748,0,21.285-3.029,30.472-8.759L311.327,482.48h230.651 c31.783,0,57.641-25.857,57.641-57.64V63.846c-0.002-31.783-25.859-57.64-57.641-57.64H58.64z M115.449,552.572 c-8.708,0-15.812-7.081-15.834-15.784l-0.208-81.386c-0.021-8.14-6.66-14.762-14.8-14.762H58.64c-8.712,0-15.8-7.088-15.8-15.801 V63.846c0-8.712,7.088-15.8,15.8-15.8h483.338c8.713,0,15.801,7.088,15.801,15.8V424.84c-0.002,8.712-7.09,15.8-15.801,15.8 H303.586c-2.772,0-5.481,0.775-7.833,2.242L123.777,550.153C121.24,551.736,118.36,552.572,115.449,552.572z M58.64,49.046 c-8.161,0-14.8,6.639-14.8,14.8V424.84c0,8.161,6.64,14.801,14.8,14.801h25.966c8.69,0,15.778,7.069,15.8,15.76l0.208,81.386 c0.021,8.153,6.676,14.786,14.834,14.786c2.724,0,5.42-0.784,7.798-2.267l171.977-107.271c2.51-1.566,5.402-2.395,8.362-2.395 h238.393c8.16,0,14.799-6.639,14.799-14.8l0.002-360.994c0-8.161-6.64-14.8-14.801-14.8H58.64z"></path> </g> </g> </g></svg></div>
+  <div class="header">stawberry</div>
+  <div class="user"><image class="user-image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmWHRRYpArUb582TLoX1WA7jIDcP-2OqcSxhQnI_IeNmwlHsvUSI3fKuY&s=10"></image></div>
+  <div class="toggle" id="message">
+        வணக்கம் <span>user<pan>,
+    </div>
+ 
+  <div class="chat_container">
+     <div class="chat-area" id="chatArea"></div>
+  </div>
+  
+  <div class="bottom-container">
+        <div class="input-box">
+            
+        </div>
+        <textarea type="text" placeholder="Geminiயைக் கேளுங்கள்" id="messageInput" class="messageInput"  ></textarea>
+        <div class="icons">
+          <div class="pulse" style="display:none;" id="pulsye"></div>
+            <div class="icon mic"><svg id="mics" fill="#ffffff" height="200px" width="200px" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" xmlns:xlink="http://www.w3.org/1999/xlink" enable-background="new 0 0 512 512"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <path d="m439.5,236c0-11.3-9.1-20.4-20.4-20.4s-20.4,9.1-20.4,20.4c0,70-64,126.9-142.7,126.9-78.7,0-142.7-56.9-142.7-126.9 0-11.3-9.1-20.4-20.4-20.4s-20.4,9.1-20.4,20.4c0,86.2 71.5,157.4 163.1,166.7v57.5h-23.6c-11.3,0-20.4,9.1-20.4,20.4 0,11.3 9.1,20.4 20.4,20.4h88c11.3,0 20.4-9.1 20.4-20.4 0-11.3-9.1-20.4-20.4-20.4h-23.6v-57.5c91.6-9.3 163.1-80.5 163.1-166.7z"></path> <path d="m256,323.5c51,0 92.3-41.3 92.3-92.3v-127.9c0-51-41.3-92.3-92.3-92.3s-92.3,41.3-92.3,92.3v127.9c0,51 41.3,92.3 92.3,92.3zm-52.3-220.2c0-28.8 23.5-52.3 52.3-52.3s52.3,23.5 52.3,52.3v127.9c0,28.8-23.5,52.3-52.3,52.3s-52.3-23.5-52.3-52.3v-127.9z"></path> </g> </g> </g></svg></div>
+                    <input type="file" id="file-input" class="file-input" accept="image/*, video/*" multiple onchange="uploadMedia(event)">
+                <label for="file-input" class="upload-btn">
+            <div class="icon camera"><svg fill="#ffffff" height="200px" width="200px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 488.3 488.3" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <path d="M431.9,110.7h-79.6l-2-8.5C342.6,69.1,313.5,46,279.5,46h-70.7c-34,0-63.1,23.1-70.8,56.2l-2,8.5H56.5 C25.3,110.7,0,136.1,0,167.2v215.7c0,32.8,26.7,59.4,59.4,59.4h369.5c32.8,0,59.4-26.7,59.4-59.4V167.2 C488.4,136,463,110.7,431.9,110.7z M464.4,382.9c0,19.5-15.9,35.4-35.4,35.4H59.5c-19.5,0-35.4-15.9-35.4-35.4V167.2 c0-17.9,14.6-32.5,32.5-32.5h89.1c5.6,0,10.4-3.8,11.7-9.3l4.1-17.7c5.2-22.2,24.7-37.6,47.4-37.6h70.7 c22.7,0,42.2,15.5,47.4,37.6l4.1,17.7c1.3,5.4,6.1,9.3,11.7,9.3h89.1c17.9,0,32.5,14.6,32.5,32.5V382.9L464.4,382.9z"></path> <circle cx="82.5" cy="187" r="11.9"></circle> <path d="M295.5,188.4c-5.7-3.3-13.1-1.4-16.4,4.4c-3.3,5.7-1.4,13.1,4.4,16.4l0,0c1.9,1.1,4,1.6,6,1.6c4.2,0,8.2-2.1,10.4-6 C303.2,199,301.2,191.7,295.5,188.4z"></path> <path d="M176.2,316.2c-3.3-5.8-10.7-7.7-16.4-4.4c-5.7,3.3-7.7,10.7-4.4,16.4c2.2,3.8,6.3,6,10.4,6c2,0,4.1-0.5,6-1.6 C177.5,329.3,179.5,322,176.2,316.2L176.2,316.2z"></path> <path d="M171.9,221.4c-5.7-3.3-13.1-1.4-16.4,4.4c-3.3,5.7-1.4,13.1,4.4,16.4c1.9,1.1,4,1.6,6,1.6c4.1,0,8.2-2.1,10.4-6 C179.6,232.1,177.7,224.7,171.9,221.4z"></path> <path d="M165.8,277c0-6.6-5.4-12-12-12s-12,5.4-12,12s5.4,12,12,12l0,0C160.4,289,165.8,283.6,165.8,277z"></path> <path d="M244.1,355.5c-6.6,0-12,5.4-12,12s5.4,12,12,12l0,0c6.6,0,12-5.4,12-12C256,360.9,250.7,355.5,244.1,355.5z"></path> <path d="M283.3,345.1c-5.7,3.3-7.7,10.6-4.4,16.4c2.2,3.8,6.3,6,10.4,6c2,0,4.1-0.5,6-1.6c5.7-3.3,7.7-10.6,4.4-16.4 C296.4,343.8,289,341.8,283.3,345.1z"></path> <path d="M193,188.3c-5.7,3.3-7.7,10.7-4.4,16.4c2.2,3.9,6.3,6,10.4,6c2,0,4.1-0.5,6-1.6c5.7-3.3,7.7-10.7,4.4-16.4 S198.8,185,193,188.3z"></path> <path d="M204.9,345L204.9,345c-5.7-3.3-13.1-1.4-16.4,4.4c-3.3,5.7-1.4,13.1,4.3,16.4l0,0c1.9,1.1,4,1.6,6,1.6 c4.1,0,8.2-2.1,10.4-6C212.6,355.6,210.6,348.3,204.9,345z"></path> <path d="M328.5,312.1c-5.7-3.3-13.1-1.4-16.4,4.3c-3.3,5.7-1.4,13.1,4.3,16.4c1.9,1.1,4,1.6,6,1.6c4.1,0,8.2-2.1,10.4-6 C336.1,322.8,334.2,315.4,328.5,312.1z"></path> <path d="M334.6,265.1c-6.6,0-12,5.3-12,12c0,0.1,0,0.2,0,0.2c0,6.6,5.3,12,12,12l0,0c6.6,0,12-5.4,12-12l0,0c0-0.1,0-0.1,0-0.2 l0,0C346.6,270.5,341.2,265.1,334.6,265.1z"></path> <path d="M322.5,243.9c2,0,4.1-0.5,6-1.6c5.7-3.3,7.7-10.7,4.4-16.4c-3.3-5.7-10.7-7.7-16.4-4.4c-5.7,3.3-7.7,10.7-4.4,16.4 C314.4,241.7,318.4,243.9,322.5,243.9z"></path> <path d="M244.2,174.7c-6.6,0-12,5.4-12,12s5.4,12,12,12l0,0c6.6,0,12-5.4,12-12C256.2,180,250.9,174.7,244.2,174.7z"></path> </g> </g> </g></svg></div>
+           </label>
+        </div>
+         <div class="icon-stars"><svg fill="#ffffff" class="mic-icon"viewBox="0 0 56 56" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M 24.5898 49.5742 C 25.5508 49.5742 26.2539 48.8477 26.2539 47.9336 L 26.2539 8.0664 C 26.2539 7.1524 25.5508 6.4258 24.5898 6.4258 C 23.6524 6.4258 22.9492 7.1524 22.9492 8.0664 L 22.9492 47.9336 C 22.9492 48.8477 23.6524 49.5742 24.5898 49.5742 Z M 38.2305 44.8867 C 39.1680 44.8867 39.8711 44.1367 39.8711 43.2227 L 39.8711 12.7773 C 39.8711 11.8633 39.1680 11.1133 38.2305 11.1133 C 37.2930 11.1133 36.5664 11.8633 36.5664 12.7773 L 36.5664 43.2227 C 36.5664 44.1367 37.2930 44.8867 38.2305 44.8867 Z M 17.7930 41.0898 C 18.7305 41.0898 19.4336 40.3633 19.4336 39.4492 L 19.4336 16.5508 C 19.4336 15.6367 18.7305 14.9102 17.7930 14.9102 C 16.8320 14.9102 16.1289 15.6367 16.1289 16.5508 L 16.1289 39.4492 C 16.1289 40.3633 16.8320 41.0898 17.7930 41.0898 Z M 31.4102 38.5586 C 32.3476 38.5586 33.0742 37.8320 33.0742 36.9180 L 33.0742 19.0820 C 33.0742 18.1680 32.3476 17.4414 31.4102 17.4414 C 30.4727 17.4414 29.7695 18.1680 29.7695 19.0820 L 29.7695 36.9180 C 29.7695 37.8320 30.4727 38.5586 31.4102 38.5586 Z M 45.0508 34.3633 C 45.9883 34.3633 46.6914 33.6133 46.6914 32.6992 L 46.6914 23.3008 C 46.6914 22.3867 45.9883 21.6367 45.0508 21.6367 C 44.0898 21.6367 43.3867 22.3867 43.3867 23.3008 L 43.3867 32.6992 C 43.3867 33.6133 44.0898 34.3633 45.0508 34.3633 Z M 10.9727 32.5117 C 11.9102 32.5117 12.6133 31.7851 12.6133 30.8711 L 12.6133 25.1289 C 12.6133 24.2149 11.9102 23.4883 10.9727 23.4883 C 10.0117 23.4883 9.3086 24.2149 9.3086 25.1289 L 9.3086 30.8711 C 9.3086 31.7851 10.0117 32.5117 10.9727 32.5117 Z"></path></g></svg></div>
+         
+<svg width="165px" height="165px" viewBox="-8.16 -8.16 40.32 40.32" fill="none" id="seic" xmlns="http://www.w3.org/2000/svg" stroke="#000000" class="send-button-icon" id=""stroke-width="0.00024000000000000003"><g id="SVGRepo_bgCarrier" stroke-width="0" transform="translate(0,0), scale(1)"><rect x="-8.16" y="-8.16" width="40.32" height="40.32" rx="20.16" fill="#7ed0ec" strokewidth="0"></rect></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" stroke="#CCCCCC" stroke-width="0.8160000000000001"> <path d="M18.0693 8.50867L9.50929 4.22867C3.75929 1.34867 1.39929 3.70867 4.27929 9.45867L5.14929 11.1987C5.39929 11.7087 5.39929 12.2987 5.14929 12.8087L4.27929 14.5387C1.39929 20.2887 3.74929 22.6487 9.50929 19.7687L18.0693 15.4887C21.9093 13.5687 21.9093 10.4287 18.0693 8.50867ZM14.8393 12.7487H9.43929C9.02929 12.7487 8.68929 12.4087 8.68929 11.9987C8.68929 11.5887 9.02929 11.2487 9.43929 11.2487H14.8393C15.2493 11.2487 15.5893 11.5887 15.5893 11.9987C15.5893 12.4087 15.2493 12.7487 14.8393 12.7487Z" fill="#292D32"></path> </g><g id="SVGRepo_iconCarrier"> <path d="M18.0693 8.50867L9.50929 4.22867C3.75929 1.34867 1.39929 3.70867 4.27929 9.45867L5.14929 11.1987C5.39929 11.7087 5.39929 12.2987 5.14929 12.8087L4.27929 14.5387C1.39929 20.2887 3.74929 22.6487 9.50929 19.7687L18.0693 15.4887C21.9093 13.5687 21.9093 10.4287 18.0693 8.50867ZM14.8393 12.7487H9.43929C9.02929 12.7487 8.68929 12.4087 8.68929 11.9987C8.68929 11.5887 9.02929 11.2487 9.43929 11.2487H14.8393C15.2493 11.2487 15.5893 11.5887 15.5893 11.9987C15.5893 12.4087 15.2493 12.7487 14.8393 12.7487Z" fill="#292D32"></path> </g></svg>
+    </div>
+  
+</div>
+<div class="chat-histery" id="histui" style="Display:none;">  <div class="message-icon" id="gy7hjy"><svg class="close-history"fill="#000000" viewBox="0 0 24 24" id="btn-submit" onclick="sendMessage()" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M22,12 C22,6.4771525 17.5228475,2 12,2 C6.4771525,2 2,6.4771525 2,12 C2,17.5228475 6.4771525,22 12,22 C17.5228475,22 22,17.5228475 22,12 Z M20,12 C20,16.418278 16.418278,20 12,20 C7.581722,20 4,16.418278 4,12 C4,7.581722 7.581722,4 12,4 C16.418278,4 20,7.581722 20,12 Z M18,12 C18,11.4477153 17.5522847,11 17,11 L9.414,11 L10.7071068,9.70710678 C11.0375504,9.37666315 11.0883879,8.87249453 10.8596192,8.48859705 L10.7902954,8.38710056 L10.7071068,8.29289322 C10.3466228,7.93240926 9.77939176,7.90467972 9.38710056,8.20970461 L9.29289322,8.29289322 L6.29289322,11.2928932 L6.2514958,11.336853 L6.19633458,11.4046934 L6.12467117,11.5159379 L6.07122549,11.628664 L6.03584514,11.734007 L6.00690716,11.8819045 L6,12 L6.00278786,12.0752385 L6.02024007,12.2007258 L6.04973809,12.3121425 L6.09367336,12.4232215 L6.14599545,12.5207088 L6.21968877,12.625449 L6.29289322,12.7071068 L9.29289322,15.7071068 C9.68341751,16.0976311 10.3165825,16.0976311 10.7071068,15.7071068 C11.0675907,15.3466228 11.0953203,14.7793918 10.7902954,14.3871006 L10.7071068,14.2928932 L9.416,13 L17,13 C17.5522847,13 18,12.5522847 18,12 Z"></path> </g></svg></div></div>
+        <script>
+        
+        document.getElementById("mics").addEventListener
+  ("click",function()
+  {
+    const items = document.getElementById("pulsye");
+    if(items.style.display === "none"){
+      items.style.display = "block";
+    }else{
+      items.style.display = "none";
+    }
+  });
+  document.getElementById("messageInput").addEventListener
+  ("click",function()
+  {
+    const items = document.getElementById("seic");
+    if(items.style.display === "none"){
+      items.style.display = "block";
+    }else{
+      items.style.display = "none";
+    }
+  });
+  document.getElementById("Capa_1").addEventListener
+  ("click",function()
+  {
+    const items = document.getElementById("histui");
+    if(items.style.display === "none"){
+      items.style.display = "block";
+    }else{
+      items.style.display = "none";
+    }
+  });
+  document.getElementById("gy7hjy").addEventListener
+  ("click",function()
+  {
+    const items = document.getElementById("histui");
+    if(items.style.display === "none"){
+      items.style.display = "block";
+    }else{
+      items.style.display = "none";
+    }
+  });
+    </script>
+    <script>
+    // Hide the text after 2 seconds
+    setTimeout(() => {
+      document.getElementById('message').style.display = 'none';
+    }, 3000);
+  </script>
+  <!--ai-->
+  
+  <!--ai chath-->
+  <script>
+
+  </script>
+  <div style="position:fixed;padding:10px 2px 15px 3px;overflow-y:Scroll;top:10%;left:0;height:74.5%;width:100%;"class="chat-messages" id="chat_container" style="position:fixed;"></div>
+      
+    
+    
+    <script>
+        const messagesContainer = document.getElementById("chat_container");
+const userInput = document.getElementById("messageInput");
+const sendButton = document.getElementById("seic");
+const mediaInput = document.getElementById("file-input");
+
+const responses = {
+    "hello": "வணக்கம்! நான் எப்படி உங்களுக்கு உதவ வேண்டும்?",
+    "hi": "வணக்கம்! நான் உங்களுக்கு என்ன செய்ய வேண்டும்?",
+    "bye": "பிரியாவிடை! நல்ல நாளாக வாழ்க!",
+    "thanks": "உங்களுக்கு நன்றி!😄",
+    "how are you": "நான் நலமாக இருக்கிறேன். நீங்கள் எப்படி இருக்கிறீர்கள்?",
+    "good morning": "காலை வணக்கம்!",
+    "good afternoon": "மதிய வணக்கம்!",
+    "good evening": "மாலை வணக்கம்!",
+    "good night": "இரவு வணக்கம்! இனிய கனவுகள்!",
+    "what is your name": "என் பெயர் ரிப்லே (Ripley).",
+    "who are you": "நான் ஒரு செயற்கை நுண்ணறிவு சந்தாதாரன்.",
+    "proverb": "கற்றது கைமண் அளவு, கல்லாதது உலகளவு.",
+    "edit": '<iframe style="border:none;" width="100%" height="80%" src="vh.html"></iframe>',
+    "music": '<audio controls class="audio" src="kkk.mp3"></audio>',
+    "image": '<img src="image.jpg" alt="Sample Image" style="max-width: 100%;">',
+    "video": '<video controls src="video.mp4" style="max-width: 100%;"></video>',
+    "my name is surya": "hi surya",
+    "voice": "This is a voice response. Let me speak for you.",
+};
+
+function sendMessage() {
+    const message = userInput.value.trim();
+    if (message) {
+        appendMessage("sent", "text", message);
+        const response = getResponse(message.toLowerCase()) || "மன்னிக்கவும், உங்கள் கேள்வியை புரிந்துகொள்ள முடியவில்லை.";
+        appendResponse(response);
+        userInput.value = "";
+    }
+}
+
+function sendMedia(event) {
+    const file = event.target.files[0];
+    if (!file) return;
+
+    const reader = new FileReader();
+  const g={
+    "hi":"hello",
+  };
+    reader.onload = () => {
+        if (file.type.startsWith("image/")) {
+            appendMessage("sent", "image", reader.result);
+            setTimeout(() => appendMessage("received", "text", "Nice picture!"), 600);
+
+        } else if (file.type.startsWith("video/")) {
+            appendMessage("sent", "video", reader.result);
+            setTimeout(() => appendMessage("received", "text", "Cool video!"), 600);
+        }
+    };
+    reader.readAsDataURL(file);
+}
+
+function appendMessage(type, contentType, content) {
+    const messageDiv = document.createElement("div");
+    messageDiv.className = `message ${type}`;
+
+    if (contentType === "text") {
+        if (content.includes("<") && !content.includes("<audio") && !content.includes("<video")) {
+            messageDiv.innerHTML = content;
+        } else {
+            messageDiv.textContent = content;
+        }
+    } else if (contentType === "image") {
+        const img = document.createElement("img");
+        img.src = content;
+        messageDiv.appendChild(img);
+    } else if (contentType === "audio") {
+        const audio = document.createElement("audio");
+        audio.src = content;
+        audio.controls = true;
+        messageDiv.appendChild(audio);
+    } else if (contentType === "video") {
+        const video = document.createElement("video");
+        video.src = content;
+        video.controls = true;
+        messageDiv.appendChild(video);
+    }
+
+    messagesContainer.appendChild(messageDiv);
+    messagesContainer.scrollTop = messagesContainer.scrollHeight;
+}
+
+function appendResponse(response) {
+    if (response.includes("<audio")) {
+        appendMessage("received", "audio", "kkk.mp3");
+    } else if (response.includes("<img")) {
+        appendMessage("received", "image", "image.jpg");
+    } else if (response.includes("<video")) {
+        appendMessage("received", "video", "video.mp4");
+    } else if (response === "This is a voice response. Let me speak for you.") {
+        appendMessage("received", "text", response);
+        speak(response);
+    } else {
+        appendMessage("received", "text", response);
+        speak(response); // Speak any text response
+    }
+}
+
+function getResponse(input) {
+    for (const key in responses) {
+        if (input.includes(key)) {
+            return responses[key];
+        }
+    }
+    return null;
+}
+
+function speak(text) {
+    const speech = new SpeechSynthesisUtterance();
+    speech.text = text;
+    speech.lang = "ta-IN"; // Tamil (India) voice
+    speech.pitch = 1;
+    speech.rate = 1;
+    speech.volume = 1;
+
+    window.speechSynthesis.speak(speech);
+}
+
+sendButton.addEventListener("click", sendMessage);
+mediaInput.addEventListener("change", sendMedia);
+userInput.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") sendMessage();
+});
+
+
+    </script>
+              </div>
